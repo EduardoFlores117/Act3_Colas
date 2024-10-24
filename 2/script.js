@@ -3,15 +3,19 @@ let cochesPintados = 0;
 let colores = ["red", "blue", "green", "yellow", "purple", "orange", "pink", "brown"];
 let intervalo;
 let tiempoInicio;
+let temporizadorActivo = false; // Agregar una variable para controlar el temporizador
 
 function iniciarTemporizador() {
     tiempoInicio = new Date();
+    temporizadorActivo = true; // Marcar el temporizador como activo
     setInterval(() => {
-        const ahora = new Date();
-        const diferencia = new Date(ahora - tiempoInicio);
-        const minutos = String(diferencia.getUTCMinutes()).padStart(2, '0');
-        const segundos = String(diferencia.getUTCSeconds()).padStart(2, '0');
-        document.getElementById('tiempo').textContent = `Tiempo: ${minutos}:${segundos}`;
+        if (temporizadorActivo) { // Solo actualizar el tiempo si el temporizador está activo
+            const ahora = new Date();
+            const diferencia = new Date(ahora - tiempoInicio);
+            const minutos = String(diferencia.getUTCMinutes()).padStart(2, '0');
+            const segundos = String(diferencia.getUTCSeconds()).padStart(2, '0');
+            document.getElementById('tiempo').textContent = `Tiempo: ${minutos}:${segundos}`;
+        }
     }, 1000);
 }
 
@@ -76,6 +80,7 @@ function pintarCoche(colorSeleccionado) {
             actualizarCoches();
         }, 500);
     } else {
+        temporizadorActivo = false; // Detener el temporizador
         Swal.fire({
             title: 'Color incorrecto',
             text: 'Intenta de nuevo.',
@@ -92,6 +97,7 @@ function aumentarVelocidad() {
 }
 
 function terminarJuego() {
+    temporizadorActivo = false; // Asegurarse de que el temporizador esté detenido
     const tiempoFinal = document.getElementById('tiempo').textContent;
     Swal.fire({
         title: '¡Juego Terminado!',
@@ -147,4 +153,3 @@ function confirmarRegresoMenu() {
         }
     });
 }
-
