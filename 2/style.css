@@ -1,0 +1,137 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle, #ff6f00, #ff8f00);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: bounceIn 1s ease;
+    width: 80%;
+    max-width: 800px;
+}
+
+/* Contenedor con espacio reservado para 5 coches */
+.carro-container {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+    padding: 10px;
+    height: 90px; /* Altura fija */
+    max-width: 800px;
+}
+
+/* Estilo de los coches */
+.carro {
+    width: 120px;
+    height: 60px;
+    background-color: #ddd;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s;
+    animation: mover 2s ease-in-out infinite alternate;
+}
+
+.carro::before, .carro::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.carro::before {
+    left: 15px;
+}
+
+.carro::after {
+    right: 15px;
+}
+
+.carro-label {
+    position: absolute;
+    bottom: -25px;
+    font-weight: bold;
+    color: black;
+}
+
+/* Paleta de colores */
+.paleta-colores {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.paleta-colores button {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.paleta-colores button:hover {
+    transform: scale(1.2);
+}
+
+/* Animaciones */
+@keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(5px);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.menu-btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 15px;
+}
+
+.menu-btn:hover {
+    background-color: #388e3c;
+    transform: scale(1.05);
+}

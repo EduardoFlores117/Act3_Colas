@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Pintar Coches</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Juego: Pintar Coches</h1>
+
+        <div id="carro-container" class="carro-container"></div>
+
+        <div class="paleta-colores">
+            <button onclick="pintarCoche('red')" class="btn-color" style="background-color: red;"></button>
+            <button onclick="pintarCoche('blue')" class="btn-color" style="background-color: blue;"></button>
+            <button onclick="pintarCoche('green')" class="btn-color" style="background-color: green;"></button>
+            <button onclick="pintarCoche('yellow')" class="btn-color" style="background-color: yellow;"></button>
+            <button onclick="pintarCoche('purple')" class="btn-color" style="background-color: purple;"></button>
+            <button onclick="pintarCoche('orange')" class="btn-color" style="background-color: orange;"></button>
+            <button onclick="pintarCoche('pink')" class="btn-color" style="background-color: pink;"></button>
+            <button onclick="pintarCoche('brown')" class="btn-color" style="background-color: brown;"></button>
+        </div>
+
+        <div class="botones">
+            <p id="record">Coches pintados: 0</p>
+            <p id="tiempo">Tiempo: 00:00</p>
+            <button class="menu-btn" onclick="confirmarRegresoMenu()">Volver al Menú Principal</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
