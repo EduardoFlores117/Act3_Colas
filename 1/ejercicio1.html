@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventanilla de Banco</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Ventanilla de Banco</h1>
+
+        <div class="form-sections">
+            <div class="formulario">
+                <h2>Agregar Cliente</h2>
+                <input type="number" id="turno" placeholder="No. Turno" min="1" />
+                <input type="text" id="nombre" placeholder="Nombre del Cliente" />
+                <select id="movimiento">
+                    <option value="Pago de servicio">Pago de servicio</option>
+                    <option value="Depósito">Depósito</option>
+                    <option value="Retiro">Retiro</option>
+                    <option value="Compra de tiempo-aire">Compra de tiempo-aire</option>
+                    <option value="Consulta de saldo">Consulta de saldo</option>
+                </select>
+                <button class="btn agregar" onclick="agregarCliente()">Agregar a la Cola</button>
+            </div>
+
+            <div class="estado-cola">
+                <h2>Estado de la Cola</h2>
+                <p>Frente: <span id="frente">-1</span></p>
+                <p>Final: <span id="final">-1</span></p>
+            </div>
+        </div>
+
+        <div class="botones">
+            <button class="btn atender" onclick="atenderCliente()">Atender en Ventanilla</button>
+            <button class="menu-btn" onclick="confirmarRegresoMenu()">Volver al Menú Principal</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>No. Turno</th>
+                    <th>Cliente</th>
+                    <th>Tipo Movimiento</th>
+                    <th>Hora Llegada</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-clientes"></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
