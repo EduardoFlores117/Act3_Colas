@@ -16,12 +16,24 @@ function agregarCliente() {
     const horaLlegada = new Date();
 
     if (isNaN(turno) || nombre === "") {
-        Swal.fire('Error', 'Por favor, complete todos los campos.', 'error');
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Por favor, complete todos los campos.',
+            confirmButtonText: 'Aceptar',
+            customClass: { confirmButton: 'custom-confirm-button' }
+        });
         return;
     }
 
     if (colaClientes.some(cliente => cliente.turno === turno)) {
-        Swal.fire('Error', 'El número de turno ya está en uso.', 'error');
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'El número de turno ya está en uso.',
+            confirmButtonText: 'Aceptar',
+            customClass: { confirmButton: 'custom-confirm-button' }
+        });
         return;
     }
 
@@ -32,6 +44,7 @@ function agregarCliente() {
     mostrarEstadoCola();
 
     Swal.fire({
+        icon: 'success',
         title: 'Cliente agregado',
         html: `
             <p>No Turno: ${turno}</p>
@@ -39,14 +52,21 @@ function agregarCliente() {
             <p>Tipo de Movimiento: ${movimiento}</p>
             <p>Hora de Llegada: ${horaLlegada.toLocaleString()}</p>
         `,
-        icon: 'success',
-        confirmButtonText: 'Aceptar'
+        confirmButtonText: 'Aceptar',
+        customClass: { confirmButton: 'custom-confirm-button' }
     });
 }
 
+/** Atender Cliente */
 function atenderCliente() {
     if (colaClientes.length === 0) {
-        Swal.fire('Error', 'No hay clientes en la cola.', 'error');
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'No hay clientes en la cola.',
+            confirmButtonText: 'Aceptar',
+            customClass: { confirmButton: 'custom-confirm-button' }
+        });
         return;
     }
 
@@ -58,16 +78,18 @@ function atenderCliente() {
     mostrarEstadoCola();
 
     Swal.fire({
+        icon: 'info',
         title: 'Cliente atendido',
         html: `
             <p>Nombre: ${clienteAtendido.nombre}</p>
             <p>Tiempo de espera: ${tiempoEspera} segundos</p>
         `,
-        icon: 'info',
-        confirmButtonText: 'Aceptar'
+        confirmButtonText: 'Aceptar',
+        customClass: { confirmButton: 'custom-confirm-button' }
     });
 }
 
+/** Actualiza la tabla con los clientes en cola */
 function actualizarTabla() {
     const tabla = document.getElementById("tabla-clientes");
     tabla.innerHTML = "";
@@ -84,11 +106,11 @@ function actualizarTabla() {
     });
 }
 
+/** Muestra el estado actual de la cola */
 function mostrarEstadoCola() {
     const frente = document.getElementById("frente");
     const final = document.getElementById("final");
 
-    // Mostrar el número de turno del primer y último cliente en la cola
     if (colaClientes.length > 0) {
         frente.innerText = colaClientes[0].turno;
         final.innerText = colaClientes[colaClientes.length - 1].turno;
@@ -112,6 +134,7 @@ function salir() {
     });
 }
 
+/** Confirmación para regresar al menú */
 function confirmarRegresoMenu() {
     Swal.fire({
         title: '¿Seguro que quieres volver al menú?',
@@ -119,12 +142,14 @@ function confirmarRegresoMenu() {
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Sí, volver al menú',
-        cancelButtonText: 'No'
+        cancelButtonText: 'No',
+        customClass: { confirmButton: 'custom-confirm-button' }
     }).then((result) => {
         if (result.isConfirmed) {
-            window.location.href = '../index.html'; // Ruta al menú principal
+            window.location.href = '../index.html';
         }
     });
 }
 
 window.onload = mostrarEstadoCola;
+
