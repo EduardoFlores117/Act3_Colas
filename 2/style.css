@@ -135,3 +135,10 @@ body {
     background-color: #388e3c;
     transform: scale(1.05);
 }
+
+.instrucciones {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #333; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+}
