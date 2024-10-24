@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estacionamiento de Autos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Estacionamiento para Autos</h1>
+
+        <div class="form-group">
+            <input type="text" id="placas" placeholder="Placas del Auto" />
+            <input type="text" id="propietario" placeholder="Propietario" />
+            <button onclick="ingresarAuto()">Ingresar Auto</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Placas</th>
+                    <th>Propietario</th>
+                    <th>Hora de Entrada</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-autos"></tbody>
+        </table>
+
+        <div class="botones">
+            <button class="salida-btn" onclick="salirAuto()">Salida de Auto</button>
+            <button class="menu-btn" onclick="con
