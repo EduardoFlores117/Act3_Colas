@@ -108,3 +108,21 @@ th {
     background-color: #388e3c;
     transform: scale(1.05);
 }
+
+.custom-confirm-button {
+    background-color: #4caf50 !important; /* Verde agradable */
+    color: white !important;
+    font-size: 1.2rem !important;
+    padding: 15px 30px !important;
+    border-radius: 10px !important;
+    width: auto !important; /* Ajuste automático según el texto */
+    min-width: 120px; /* Asegura un ancho mínimo */
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-confirm-button:hover {
+    background-color: #388e3c !important;
+    transform: scale(1.1);
+}
+
